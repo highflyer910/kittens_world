@@ -1,8 +1,8 @@
 <template>
 <footer>
-<div class="p-10 flex justify-between bg-blue-400">
+<div class="p-10 flex justify-between bg-blue-400 sm:column">
 <div class="w-1/2">
-    <label class="bock mb-1 text-lg text-blue-50">Join the Newsletter:</label>
+    <label class="block mb-2 text-lg text-blue-50 mt-2">Join the Newsletter:</label>
     <form class="flex">
     <input type="email" class="w-full border px-4 py-2 rounded focus:border-blue-600 outline-none" 
     autofocus placeholder="Your Email">

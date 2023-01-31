@@ -1,8 +1,8 @@
 <template>
-  <div class="flex flex-col h-screen">
+  <div class="flex flex-col sm:p-7">
     <h1 class="text-center text-2xl p-6">About Kittens World</h1>
-    <h2 class="text-center">Welcome to Kittens World, your ultimate guide to all things feline! </h2>
-    <p class="p-5 px-24">
+    <h2 class="text-center text-xl px-20">Welcome to Kittens World, your ultimate guide to all things feline! </h2>
+    <p class="py-10 px-10">
       We created this website with a simple mission in mind: to spread our love for cats 
       and provide you with the latest information and resources on these amazing creatures. 
       Our passion for cats runs deep, and we believe that everyone should have access to the 

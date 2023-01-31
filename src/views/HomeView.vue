@@ -40,19 +40,19 @@
   <div class="photo mr-2 text-center">
     <img :src="property.imageTwo" :alt="property.imageAlt" class="image">
     <p class="text">
-      <router-link to="/breeds">Fun Facts</router-link>
+      <router-link to="/facts">Fun Facts</router-link>
     </p>
   </div>
   <div class="photo mr-2 text-center mt-8">
     <img :src="property.imageThree" :alt="property.imageAlt" class="image">
     <p class="text">
-      <router-link to="/breeds">Care Tips</router-link>
+      <router-link to="/tips">Care Tips</router-link>
     </p>
   </div>
   <div class="photo mr-2 text-center">
     <img :src="property.imageFour" :alt="property.imageAlt" class="image">
     <p class="text">
-      <router-link to="/breeds">Guides</router-link>
+      <router-link to="/guides">Guides</router-link>
     </p>
   </div> 
 </div>
@@ -110,6 +110,7 @@ export default {
   .text{
     @apply 
   text-blue-50
+    cursor-pointer
   }
 
   .photo{
