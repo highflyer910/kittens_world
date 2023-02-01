@@ -21,7 +21,7 @@
       Get ready to embark on a journey of discovery and be amazed by the joy, love, and companionship 
       that only a kitten can bring."</p>
       </blockquote>
-    <a href="#" class="px-4 py-3 text-lg bg-blue-500 rounded text-blue-50 mr-2 hover:text-blue-200">Learn More</a>
+    <a href="#" class="px-4 py-3 text-lg bg-blue-500 rounded text-blue-50 mr-2 hover:bg-blue-600">Learn More</a>
   </div>
   
   <div class="md:w-1/2">
