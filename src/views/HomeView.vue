@@ -3,25 +3,25 @@
   
 <div class="md:flex justify-between py-20 px-10">
   <div class="md:w-1/2 mb-10 md:mb-0">
-    <h2 class="text-2xl text-gray-800 md:text-4xl lg:text-6xl mb-6 px-3">{{property.title}}</h2>
+    <h2 class="text-2xl text-deep-100 md:text-4xl lg:text-6xl mb-6 px-3">{{property.title}}</h2>
     <blockquote class="mb-6 px-3">
     <p>“Time spent with cats is never wasted.”</p>
       <footer><cite>– Sigmund Freud</cite></footer>
-      <p class="p-6">"Discover the Joy of Kittens! Our website is dedicated to all things cats, 
+      <p class="p-6">Discover the Joy of Kittens! Our website is dedicated to all things cats, 
       with a special focus on the adorable and playful kittens. From breeds to care tips, 
       we provide the latest information to help you better understand and appreciate these 
       furry friends. Join our community of cat lovers and share your own experiences 
       and pictures of your beloved kittens. Get ready to be inspired and fall in love 
-      with these cute and cuddly creatures!"</p>
-      <p class="p-6">"Explore the fascinating world of felines with our Kittens website. 
+      with these cute and cuddly creatures!</p>
+      <p class="p-6">Explore the fascinating world of felines with our Kittens website. 
       From their history, behavior and health, to choosing the right breed, nutrition, and grooming, 
       we've got you covered. With our comprehensive guides and expert advice, you'll be equipped to 
       provide the best care for your furry companion. Join our active community of cat lovers where 
       you can connect, share and learn with others who share your passion for these amazing animals. 
       Get ready to embark on a journey of discovery and be amazed by the joy, love, and companionship 
-      that only a kitten can bring."</p>
+      that only a kitten can bring.</p>
       </blockquote>
-    <a href="#" class="px-4 py-3 text-lg bg-blue-500 rounded text-blue-50 mr-2 hover:bg-blue-600">Learn More</a>
+    <a href="#" class="px-4 py-3 text-lg bg-deep-50 rounded text-tasman-50 mr-2 hover:bg-deep-100">Learn More</a>
   </div>
   
   <div class="md:w-1/2">
@@ -30,7 +30,7 @@
 </div>  
 
 
-<div class="md:flex px-10 py-16 bg-blue-500">
+<div class="md:flex px-10 py-16 bg-deep-100">
   <div class="photo mr-2 text-center mt-8">
     <img :src="property.imageOne" :alt="property.imageAlt" class="image">
     <p class="text">
@@ -40,7 +40,7 @@
   <div class="photo mr-2 text-center">
     <img :src="property.imageTwo" :alt="property.imageAlt" class="image">
     <p class="text">
-      <router-link to="/facts">Fun Facts</router-link>
+      <router-link to="/facts">Gallery</router-link>
     </p>
   </div>
   <div class="photo mr-2 text-center mt-8">
@@ -49,12 +49,6 @@
       <router-link to="/tips">Care Tips</router-link>
     </p>
   </div>
-  <div class="photo mr-2 text-center">
-    <img :src="property.imageFour" :alt="property.imageAlt" class="image">
-    <p class="text">
-      <router-link to="/guides">Guides</router-link>
-    </p>
-  </div> 
 </div>
 </div>
     
@@ -93,7 +87,7 @@ export default {
     rounded 
     border-solid 
     border-2 
-  border-blue-50
+  border-deep-50
   }
 
 
@@ -109,7 +103,7 @@ export default {
 
   .text{
     @apply 
-  text-blue-50
+  text-tasman-50
     cursor-pointer
   }
 
