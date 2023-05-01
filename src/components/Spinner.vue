@@ -17,5 +17,12 @@
     align-items: center;
     height: 100%;
   }
+
+  @media (max-width: 600px) {
+    .loader-container {
+      flex-direction: column;
+      padding-block: 200px;
+    }
+  }
   </style>
   

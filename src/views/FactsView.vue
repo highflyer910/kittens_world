@@ -3,7 +3,7 @@
     <div v-else class="gallery">
       <div id="grid">
         <div v-for="(imageData, index) in imagesData" :key="index" class="gallery-item">
-          <img :src="imageData.url" :alt="cat"/>
+          <img :src="imageData.url" :alt="imageData.id"/>
         </div>
       </div>  
     </div>
@@ -71,5 +71,13 @@ export default {
 .gallery-item:hover{
     cursor: pointer;
     opacity: 80%;
+}
+
+@media (max-width: 600px) {
+  body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
 }
 </style>

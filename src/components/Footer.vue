@@ -34,7 +34,7 @@
         </div>
 
         <div class="md:mr-auto mb-6">
-        <button type="button" class="inline-block px-6 py-2.5 bg-deep-50 text-deep-50 text-xs rounded shadow-md hover:bg-deep-100 hover:shadow-lg focus:bg-deep-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-deep-500 active:shadow-lg transition duration-150 ease-in-out">Join</button>
+        <button type="button" class="inline-block px-6 py-2.5 bg-deep-50 text-tasman-50 text-xs rounded shadow-md hover:bg-deep-100 hover:shadow-lg focus:bg-deep-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-deep-500 active:shadow-lg transition duration-150 ease-in-out">Join</button>
         </div>
     </div>
     </form>
