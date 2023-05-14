@@ -32,21 +32,28 @@
 
 <div class="md:flex text-tasman-0 px-10 py-16 bg-deep-100">
   <div class="photo mr-2 text-center mt-8">
-    <img :src="property.imageOne" :alt="property.imageAlt" class="image">
+    <router-link to="/breeds">
+      <img :src="property.imageOne" :alt="property.imageAlt" class="image">
+    </router-link>
     <p class="text">
-      <router-link to="/breeds">Breeds</router-link>
+      Breeds
     </p>
   </div>
   <div class="photo mr-2 text-center">
-    <img :src="property.imageTwo" :alt="property.imageAlt" class="image">
+    <router-link to="/facts">
+      <img :src="property.imageTwo" :alt="property.imageAlt" class="image">
+    </router-link>
     <p class="text">
-      <router-link to="/facts">Gallery</router-link>
+      Gallery
     </p>
   </div>
   <div class="photo mr-2 text-center mt-8">
-    <img :src="property.imageThree" :alt="property.imageAlt" class="image">
+    
+    <router-link to="/tips">
+      <img :src="property.imageThree" :alt="property.imageAlt" class="image">
+    </router-link>
     <p class="text">
-      <router-link to="/tips">Care Tips</router-link>
+      Care Tips
     </p>
   </div>
 </div>
@@ -105,13 +112,11 @@
 <script>
 // @ is an alias to /src
 import Header from '@/components/Header.vue'
-import Footer from '@/components/Footer.vue'
 
 export default {
   name: 'HomeView',
   components: {
-    Header,
-    Footer
+    Header
   },
   data:() => ({
     property: {

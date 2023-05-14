@@ -12,11 +12,13 @@
                 <li><strong>Country of Origin:</strong> {{ breed.origin }}</li>
                 <li><strong>Personality:</strong> {{ breed.temperament }}</li>
                 <li><strong>Life Span:</strong> {{ breed.life_span }}</li>
+                <li>
                 <div class="container_links">
                     <li><a :href="breed.cfa_url" target="_blank" class="hover:text-deep-0 text-deep-100 font-bold">| CFA</a></li>
                     <li><a :href="breed.vetstreet_url" target="_blank" class="hover:text-deep-0 text-deep-100 font-bold">| Vetstreet</a></li>
                     <li><a :href="breed.vcahospitals_url" target="_blank" class="hover:text-deep-0 text-deep-100 font-bold">| VCA Hospitals |</a></li>
                 </div>
+                </li>
                 <li><a :href="breed.wikipedia_url" target="_blank" class="bg-deep-100 text-tasman-0 hover:bg-deep-50 px-4 py-3 rounded font-bold">Wikipedia</a></li>
             </ul>
         </div>
@@ -83,10 +85,17 @@ export default {
 h2 {
     font-size: 1.5rem;
     font-weight: bold;
+    border-bottom: 2px solid #15286d;
+    padding: 5px;
 }
+
 
 select{
     font-size: 16px;
+}
+
+select:focus{
+    outline: none;
 }
 
 .container{
