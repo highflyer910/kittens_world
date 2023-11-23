@@ -101,7 +101,7 @@
   </div>
   
   <div class="text-center text-tasman-50 pb-7 bg-deep-50">
-      Copyright © Kittens 2023
+      © Kittens 2023
   </div>
   
   
