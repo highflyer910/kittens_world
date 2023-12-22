@@ -32,7 +32,7 @@ export default {
                 breeds: [],
                 selectedBreed: '',
                 breed: null,
-                apiKey: 'live_gMYU862BRiIIuvDoK9NEn4pmSykPdO9MVglFKr4T7D3q8f42mJy25hhdQhHlPCrC',
+                apiKey: process.env.VUE_APP_CAT_API_KEY_BREEDS,
                 apiUrl: 'https://api.thecatapi.com/v1'
     };
 },

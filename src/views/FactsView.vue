@@ -21,7 +21,7 @@ export default {
     return {
       loading: true,
       imagesData: [],
-      api_key: "live_sBF3B0BNapHWKA2DOjQvOd1JBBLbxrXJd4bdRhNGhl1EWmNtR7kVsY4XFYtEsHKz",
+      api_key: process.env.VUE_APP_CAT_API_KEY_GALLERY,
       url: "https://api.thecatapi.com/v1/images/search?limit=18",
     };
   },
