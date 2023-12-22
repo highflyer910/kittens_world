@@ -12,7 +12,14 @@ A Vue.js project to learn about cat breeds and see cute cat photos using the [Ca
 - Built with Vue.js, Tailwind CSS for styling
 
 
-## Project setup
+## Project Setup
+
+To keep your API keys secure, store them in environment variables. Create a `.env` file in the project root with the following content:
+
+```dotenv
+VUE_APP_CAT_API_KEY_BREEDS=your-breeds-api-key
+VUE_APP_CAT_API_KEY_GALLERY=your-gallery-api-key
+
 ```
 npm install
 ```
