@@ -44,9 +44,12 @@ export default {
                     }
                 });
                 const breeds = await response.json();
+                console.log('Breeds response:', breeds);
                 this.breeds = breeds;
+                console.log('Breeds array:', this.breeds);
             },
             async getBreed(id) {
+                console.log('Fetching breed details for ID:', id);
                 const response = await fetch(`${this.apiUrl}/images/search?breed_id=${id}`, {
                     headers: {
                         'x-api-key': this.apiKey
@@ -54,7 +57,6 @@ export default {
                 });
                 const data = await response.json();
                 const breed = {
-                    name: data[0].breeds[0].name,
                     image: data[0],
                     description: data[0].breeds[0].description,
                     country_code: data[0].breeds[0].country_code,
@@ -67,6 +69,7 @@ export default {
                     wikipedia_url: data[0].breeds[0].wikipedia_url
                 };
                 this.breed = breed;
+                console.log('Extracted breed data:', breed);
             }
         },
         watch: {
