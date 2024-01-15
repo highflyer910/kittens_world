@@ -32,7 +32,7 @@ export default {
             breeds: [],
             selectedBreed: '',
             breed: null,
-            apiKey: process.env.VUE_APP_CAT_API_KEY_GALLERY,
+            apiKey: process.env.VUE_APP_CAT_API_KEY_BREEDS,
             apiUrl: 'https://api.thecatapi.com/v1'
         };
     },
@@ -56,7 +56,7 @@ export default {
         },
         async getBreed(id) {
             try {
-                const response = await fetch(`${this.apiUrl}/images/search?breed_id=${id}`, {
+                const response = await fetch(`${this.apiUrl}/images/search?breed_ids=${id}`, {
                     headers: {
                         'x-api-key': this.apiKey
                     }
