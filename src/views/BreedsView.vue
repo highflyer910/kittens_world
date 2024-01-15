@@ -27,79 +27,61 @@
 
 <script>
 export default {
-    data() {
-        return {
-            breeds: [],
-            selectedBreed: '',
-            breed: null,
-            apiKey: process.env.VUE_APP_CAT_API_KEY_BREEDS,
-            apiUrl: 'https://api.thecatapi.com/v1'
-        };
-    },
-    methods: {
-        async getBreeds() {
-            try {
+        data() {
+            return {
+                breeds: [],
+                selectedBreed: '',
+                breed: null,
+                apiKey: process.env.VUE_APP_CAT_API_KEY_BREEDS,
+                apiUrl: 'https://api.thecatapi.com/v1'
+    };
+},
+        methods: {
+            async getBreeds() {
                 const response = await fetch(`${this.apiUrl}/breeds`, {
                     headers: {
                         'x-api-key': this.apiKey
                     }
                 });
-                if (!response.ok) {
-                    throw new Error(`API call failed with status: ${response.status}`);
-                }
                 const breeds = await response.json();
                 this.breeds = breeds;
-            } catch (error) {
-                console.error('Failed to fetch breeds:', error);
-                // Handle the error appropriately, e.g., show a user-friendly message
-            }
-        },
-        async getBreed(id) {
-            try {
-                const response = await fetch(`${this.apiUrl}/images/search?breed_id=${id}`, {
+            },
+            async getBreed(id) {
+                const response = await fetch(`${this.apiUrl}/images/search?breed_ids=${id}`, {
                     headers: {
                         'x-api-key': this.apiKey
                     }
                 });
-                if (!response.ok) {
-                    throw new Error(`API call failed with status: ${response.status}`);
-                }
                 const data = await response.json();
-                console.log(data);
-                const breedData = data[0].breeds[0];
                 const breed = {
-                    name: breedData.name,
+                    name: data[0].breeds[0].name,
                     image: data[0],
-                    description: breedData.description,
-                    country_code: breedData.country_code,
-                    temperament: breedData.temperament,
-                    origin: breedData.origin,
-                    life_span: breedData.life_span,
-                    cfa_url: breedData.cfa_url,
-                    vetstreet_url: breedData.vetstreet_url,
-                    vcahospitals_url: breedData.vcahospitals_url,
-                    wikipedia_url: breedData.wikipedia_url
+                    description: data[0].breeds[0].description,
+                    temperament: data[0].breeds[0].temperament,
+                    origin: data[0].breeds[0].origin,
+                    life_span: data[0].breeds[0].life_span,
+                    cfa_url: data[0].breeds[0].cfa_url,
+                    vetstreet_url: data[0].breeds[0].vetstreet_url,
+                    vcahospitals_url: data[0].breeds[0].vcahospitals_url,
+                    wikipedia_url: data[0].breeds[0].wikipedia_url
                 };
                 this.breed = breed;
-            } catch (error) {
-                console.error('Failed to fetch breed data:', error);
-                // Handle the error appropriately
             }
-        }
-    },
-    watch: {
-        selectedBreed(id) {
-            if (id) {
+        },
+        watch: {
+            selectedBreed(id) {
                 this.getBreed(id);
-            } else {
-                this.breed = null;
+            }
+        },
+        async created() {
+            await this.getBreeds();
+
+            if (this.breeds.length > 0) {
+            this.selectedBreed = this.breeds[0].id;
+            this.getBreed(this.breeds[0].id);
             }
         }
-    },
-    async created() {
-        await this.getBreeds();
-    }
-};
+    };
 </script>
 
 <style scoped>
