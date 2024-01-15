@@ -27,60 +27,81 @@
 
 <script>
 export default {
-        data() {
-            return {
-                breeds: [],
-                selectedBreed: '',
-                breed: null,
-                apiKey: process.env.VUE_APP_CAT_API_KEY_BREEDS,
-                apiUrl: 'https://api.thecatapi.com/v1'
-    };
-},
-        methods: {
-            async getBreeds() {
+    data() {
+        return {
+            breeds: [],
+            selectedBreed: '',
+            breed: null,
+            apiKey: process.env.VUE_APP_CAT_API_KEY_BREEDS,
+            apiUrl: 'https://api.thecatapi.com/v1'
+        };
+    },
+    methods: {
+        async getBreeds() {
+            try {
                 const response = await fetch(`${this.apiUrl}/breeds`, {
                     headers: {
                         'x-api-key': this.apiKey
                     }
                 });
+                if (!response.ok) {
+                    throw new Error(`API call failed with status: ${response.status}`);
+                }
                 const breeds = await response.json();
-                console.log('Breeds response:', breeds);
                 this.breeds = breeds;
-                console.log('Breeds array:', this.breeds);
-            },
-            async getBreed(id) {
-                console.log('Fetching breed details for ID:', id);
+            } catch (error) {
+                console.error('Failed to fetch breeds:', error);
+                // Handle the error appropriately, e.g., show a user-friendly message
+            }
+        },
+        async getBreed(id) {
+            try {
                 const response = await fetch(`${this.apiUrl}/images/search?breed_id=${id}`, {
                     headers: {
                         'x-api-key': this.apiKey
                     }
                 });
+                if (!response.ok) {
+                    throw new Error(`API call failed with status: ${response.status}`);
+                }
                 const data = await response.json();
+                if (!data.length || !data[0].breeds || !data[0].breeds.length) {
+                    throw new Error('No breed data available');
+                }
+                const breedData = data[0].breeds[0];
                 const breed = {
+                    name: breedData.name,
                     image: data[0],
-                    description: data[0].breeds[0].description,
-                    country_code: data[0].breeds[0].country_code,
-                    temperament: data[0].breeds[0].temperament,
-                    origin: data[0].breeds[0].origin,
-                    life_span: data[0].breeds[0].life_span,
-                    cfa_url: data[0].breeds[0].cfa_url,
-                    vetstreet_url: data[0].breeds[0].vetstreet_url,
-                    vcahospitals_url: data[0].breeds[0].vcahospitals_url,
-                    wikipedia_url: data[0].breeds[0].wikipedia_url
+                    description: breedData.description,
+                    country_code: breedData.country_code,
+                    temperament: breedData.temperament,
+                    origin: breedData.origin,
+                    life_span: breedData.life_span,
+                    cfa_url: breedData.cfa_url,
+                    vetstreet_url: breedData.vetstreet_url,
+                    vcahospitals_url: breedData.vcahospitals_url,
+                    wikipedia_url: breedData.wikipedia_url
                 };
                 this.breed = breed;
-                console.log('Extracted breed data:', breed);
+            } catch (error) {
+                console.error('Failed to fetch breed data:', error);
+                // Handle the error appropriately
             }
-        },
-        watch: {
-            selectedBreed(id) {
-                this.getBreed(id);
-            }
-        },
-        async created() {
-            await this.getBreeds();
         }
-    };
+    },
+    watch: {
+        selectedBreed(id) {
+            if (id) {
+                this.getBreed(id);
+            } else {
+                this.breed = null;
+            }
+        }
+    },
+    async created() {
+        await this.getBreeds();
+    }
+};
 </script>
 
 <style scoped>
