@@ -56,7 +56,7 @@ export default {
         },
         async getBreed(id) {
             try {
-                const response = await fetch(`${this.apiUrl}/images/search?breed_ids=${id}`, {
+                const response = await fetch(`${this.apiUrl}/images/search?breed_id=${id}`, {
                     headers: {
                         'x-api-key': this.apiKey
                     }
@@ -65,9 +65,7 @@ export default {
                     throw new Error(`API call failed with status: ${response.status}`);
                 }
                 const data = await response.json();
-                if (!data.length || !data[0].breeds || !data[0].breeds.length) {
-                    throw new Error('No breed data available');
-                }
+                console.log(data);
                 const breedData = data[0].breeds[0];
                 const breed = {
                     name: breedData.name,
